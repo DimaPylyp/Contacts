@@ -13,6 +13,10 @@
 		329707752480474400D33383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329707732480474400D33383 /* Main.storyboard */; };
 		329707772480474500D33383 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 329707762480474500D33383 /* Assets.xcassets */; };
 		3297077A2480474500D33383 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 329707782480474500D33383 /* LaunchScreen.storyboard */; };
+		329707842480484000D33383 /* ContactsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329707832480484000D33383 /* ContactsCollectionView.swift */; };
+		32970786248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32970785248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift */; };
+		329707882480491100D33383 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329707872480491100D33383 /* UserModel.swift */; };
+		3297078B2480493E00D33383 /* LayoutOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3297078A2480493E00D33383 /* LayoutOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		329707762480474500D33383 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		329707792480474500D33383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3297077B2480474500D33383 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		329707832480484000D33383 /* ContactsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsCollectionView.swift; sourceTree = "<group>"; };
+		32970785248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsLayoutListCollectionViewCell.swift; sourceTree = "<group>"; };
+		329707872480491100D33383 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3297078A2480493E00D33383 /* LayoutOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,41 @@
 			children = (
 				3297076D2480474400D33383 /* AppDelegate.swift */,
 				3297076F2480474400D33383 /* SceneDelegate.swift */,
-				329707712480474400D33383 /* ViewController.swift */,
-				329707732480474400D33383 /* Main.storyboard */,
+				329707892480492000D33383 /* Model */,
+				32970782248047B400D33383 /* View */,
+				32970781248047AA00D33383 /* Controller */,
 				329707762480474500D33383 /* Assets.xcassets */,
 				329707782480474500D33383 /* LaunchScreen.storyboard */,
 				3297077B2480474500D33383 /* Info.plist */,
 			);
 			path = "Contacts by Dima";
+			sourceTree = "<group>";
+		};
+		32970781248047AA00D33383 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				329707712480474400D33383 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		32970782248047B400D33383 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				329707732480474400D33383 /* Main.storyboard */,
+				329707832480484000D33383 /* ContactsCollectionView.swift */,
+				32970785248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		329707892480492000D33383 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				329707872480491100D33383 /* UserModel.swift */,
+				3297078A2480493E00D33383 /* LayoutOption.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +174,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3297078B2480493E00D33383 /* LayoutOption.swift in Sources */,
+				32970786248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift in Sources */,
 				329707722480474400D33383 /* ViewController.swift in Sources */,
+				329707842480484000D33383 /* ContactsCollectionView.swift in Sources */,
 				3297076E2480474400D33383 /* AppDelegate.swift in Sources */,
+				329707882480491100D33383 /* UserModel.swift in Sources */,
 				329707702480474400D33383 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
