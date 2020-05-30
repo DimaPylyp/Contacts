@@ -17,6 +17,9 @@
 		32970786248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32970785248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift */; };
 		329707882480491100D33383 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329707872480491100D33383 /* UserModel.swift */; };
 		3297078B2480493E00D33383 /* LayoutOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3297078A2480493E00D33383 /* LayoutOption.swift */; };
+		32970791248121F200D33383 /* CollectionSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32970790248121F200D33383 /* CollectionSeparatorView.swift */; };
+		329707932481220500D33383 /* SeparatorCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329707922481220500D33383 /* SeparatorCollectionViewFlowLayout.swift */; };
+		329707952481579E00D33383 /* ContactsLayoutGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329707942481579E00D33383 /* ContactsLayoutGridCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		32970785248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsLayoutListCollectionViewCell.swift; sourceTree = "<group>"; };
 		329707872480491100D33383 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3297078A2480493E00D33383 /* LayoutOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutOption.swift; sourceTree = "<group>"; };
+		32970790248121F200D33383 /* CollectionSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionSeparatorView.swift; sourceTree = "<group>"; };
+		329707922481220500D33383 /* SeparatorCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		329707942481579E00D33383 /* ContactsLayoutGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsLayoutGridCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,9 @@
 				329707732480474400D33383 /* Main.storyboard */,
 				329707832480484000D33383 /* ContactsCollectionView.swift */,
 				32970785248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift */,
+				32970790248121F200D33383 /* CollectionSeparatorView.swift */,
+				329707922481220500D33383 /* SeparatorCollectionViewFlowLayout.swift */,
+				329707942481579E00D33383 /* ContactsLayoutGridCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,9 +183,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32970791248121F200D33383 /* CollectionSeparatorView.swift in Sources */,
 				3297078B2480493E00D33383 /* LayoutOption.swift in Sources */,
 				32970786248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift in Sources */,
+				329707952481579E00D33383 /* ContactsLayoutGridCollectionViewCell.swift in Sources */,
 				329707722480474400D33383 /* ViewController.swift in Sources */,
+				329707932481220500D33383 /* SeparatorCollectionViewFlowLayout.swift in Sources */,
 				329707842480484000D33383 /* ContactsCollectionView.swift in Sources */,
 				3297076E2480474400D33383 /* AppDelegate.swift in Sources */,
 				329707882480491100D33383 /* UserModel.swift in Sources */,

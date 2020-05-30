@@ -1,17 +1,17 @@
 //
-//  ContactsLayoutListCollectionViewCell.swift
+//  ContactsLayoutGridCollectionViewCell.swift
 //  Contacts by Dima
 //
-//  Created by DiMa on 28/05/2020.
+//  Created by DiMa on 29/05/2020.
 //  Copyright © 2020 DiMa. All rights reserved.
 //
 
 import UIKit
 
-class ContactsLayoutListCollectionViewCell: UICollectionViewCell {
+class ContactsLayoutGridCollectionViewCell: UICollectionViewCell {
     
-    static let reuseId = "ContactsLayoutListCollectionViewCell"
-        
+    static let reuseId = "ContactsLayoutGridCollectionViewCell"
+    
     let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -27,15 +27,8 @@ class ContactsLayoutListCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     func setup(with user: User){
         avatarImageView.image = user.avatar
-        nameLabel.text = user.name
         switch user.status {
         case .online:
             print("\(user.name) is online")
@@ -49,8 +42,6 @@ class ContactsLayoutListCollectionViewCell: UICollectionViewCell {
         
         addSubview(avatarImageView)
         avatarImageView.addSubview(statusIndicator)
-        addSubview(nameLabel)
-        
         avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         avatarImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
@@ -58,13 +49,9 @@ class ContactsLayoutListCollectionViewCell: UICollectionViewCell {
         
         statusIndicator.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor).isActive = true
         statusIndicator.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor).isActive = true
-        
-        nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10).isActive = true
-        nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-

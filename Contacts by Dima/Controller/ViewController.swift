@@ -10,14 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private let contactsCollectionView = ContactsCollectionView()
+    private var contactsCollectionView = ContactsCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+                        
         view.addSubview(contactsCollectionView)
         
-        contactsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        contactsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         contactsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         contactsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         contactsCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true

@@ -10,7 +10,25 @@ import UIKit
 
 class ContactsCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
 
-    let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+    var layout: UICollectionViewFlowLayout = SeparatorCollectionViewFlowLayout()
+    
+//    private var layoutOption: LayoutOption = .list
+    
+//    private func setupLayout(with containerSize: CGSize) {
+//        guard let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
+//            return
+//        }
+//        
+//        switch layoutOption {
+//        case .list:
+//            break
+//            
+//        case .grid:
+//            break
+//        }
+//        
+//        super.reloadData()
+//    }
     
     private let users = User.defaultUsers
     
@@ -29,7 +47,7 @@ class ContactsCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
         register(ContactsLayoutListCollectionViewCell.self, forCellWithReuseIdentifier: ContactsLayoutListCollectionViewCell.reuseId)
         
         translatesAutoresizingMaskIntoConstraints = false
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 1
         
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
