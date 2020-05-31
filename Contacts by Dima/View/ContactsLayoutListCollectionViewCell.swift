@@ -47,7 +47,6 @@ class ContactsLayoutListCollectionViewCell: UICollectionViewCell {
         imageView.frame.size = CGSize(width: 40, height: 40)
         
         imageView.contentMode = .scaleAspectFit
-        //        imageView.layer.borderWidth = 5
         imageView.layer.masksToBounds = false
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.cornerRadius = imageView.frame.height / 2
@@ -61,16 +60,6 @@ class ContactsLayoutListCollectionViewCell: UICollectionViewCell {
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
         backgroundView.layer.cornerRadius = 7.5
         backgroundView.clipsToBounds = true
-        //        backgroundView.layer.borderColor = UIColor.white.cgColor
-//        backgroundView.layer.borderWidth = 1
-//        let view = UIView()
-//        view.frame.size = CGSize(width: 15, height: 15)
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.cornerRadius = 2.5
-//        view.clipsToBounds = true
-//        view.layer.borderColor = UIColor(red: 0.20392156862745098, green: 0.7803921568627451, blue: 0.34901960784313724, alpha: 1.0).cgColor
-//        view.layer.borderWidth = 7.5
-//        backgroundView.addSubview(view)
         return backgroundView
     }()
     
@@ -80,34 +69,12 @@ class ContactsLayoutListCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    //    func setup(with user: UserModel){
-    //        avatarImageView.loadImagesUsingUrlString(urlString: user.avatarUrl)
-    //        nameLabel.text = user.name
-    //        switch user.status {
-    //        case .online:
-    //            statusIndicator.layer.borderColor = UIColor.white.cgColor
-    //            statusIndicator.layer.borderWidth = 1
-    //            let view = UIView()
-    //            view.frame.size = CGSize(width: 15, height: 15)
-    //            view.translatesAutoresizingMaskIntoConstraints = false
-    //            view.layer.cornerRadius = 2.5
-    //            view.clipsToBounds = true
-    //            view.layer.borderColor = UIColor(red: 0.20392156862745098, green: 0.7803921568627451, blue: 0.34901960784313724, alpha: 1.0).cgColor
-    //            view.layer.borderWidth = 7.5
-    //            statusIndicator.addSubview(view)
-    //        case .offline:
-    //            break
-    //        }
-    //    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         
         addSubview(avatarImageView)
         addSubview(nameLabel)
         addSubview(statusIndicator)
-        
         
         avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
@@ -121,6 +88,20 @@ class ContactsLayoutListCollectionViewCell: UICollectionViewCell {
         
         nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 10).isActive = true
         nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+                    self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                }, completion: nil)
+            } else {
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+                    self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }, completion: nil)
+            }
+        }
     }
     
     required init?(coder: NSCoder) {

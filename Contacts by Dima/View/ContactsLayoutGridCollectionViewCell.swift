@@ -59,14 +59,24 @@ class ContactsLayoutGridCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(avatarImageView)
-//        avatarImageView.addSubview(statusIndicator)
         avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         avatarImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         avatarImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        
-//        statusIndicator.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor).isActive = true
-//        statusIndicator.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor).isActive = true
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+                    self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+                }, completion: nil)
+            } else {
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+                    self.transform = CGAffineTransform(scaleX: 1, y: 1)
+                }, completion: nil)
+            }
+        }
     }
     
     required init?(coder: NSCoder) {

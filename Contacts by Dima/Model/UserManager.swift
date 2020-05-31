@@ -47,16 +47,8 @@ struct UserManager {
         let decoder = JSONDecoder()
         do {
             let decodedData: UserData = try decoder.decode(UserData.self, from: userData)
-//            var newUser = UserModel(name: "", status: .offline, email: "", avatarUrl: "")
             let user = decodedData
                 let name = user.name
-//                let email = "\(name.filter ({!" ".contains($0) }))@example.com"
-//                let md5Data = MD5(string: email)
-//                let md5Hex =  md5Data.map { String(format: "%02hhx", $0) }.joined()
-//                let status = Status.allCases.randomElement()
-//                let avatar = "https://www.gravatar.com/avatar/\(md5Hex)?s=32&d=monsterid&r=PG"
-//
-//            newUser = UserModel(name: name, status: status!, email: email, avatarUrl: avatar)
             
             return name
         } catch {

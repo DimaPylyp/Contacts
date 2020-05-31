@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         control.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(control)
         
-//        contactsCollectionView.setupLayout(with: view.bounds.size)
         view.addSubview(contactsCollectionView)
         
         let simulateButton = UIButton()
@@ -53,7 +52,6 @@ class ViewController: UIViewController {
         
         contactsCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         contactsCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-//        contactsCollectionView.bottomAnchor.constraint(equalTo: simulateButton.topAnchor).isActive = true
         contactsCollectionView.topAnchor.constraint(equalTo: control.bottomAnchor, constant: 10).isActive = true
         
         simulateButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -75,17 +73,11 @@ extension ViewController{
         switch (segmentedControl.selectedSegmentIndex) {
         case 0:
             contactsCollectionView.layoutOption = .list
-            //            contactsCollectionView.configureCollectionViewLayoutItemSize()
             contactsCollectionView.setupLayout(with: CGSize(width: contactsCollectionView.frame.width, height: 50))
-//            contactsCollectionView.reloadData()
-            print(contactsCollectionView.layout.itemSize)
             break
         case 1:
             contactsCollectionView.layoutOption = .grid
-            //            contactsCollectionView.configureCollectionViewLayoutItemSize()
             contactsCollectionView.setupLayout(with: CGSize(width: 50, height: 50))
-//            contactsCollectionView.reloadData()
-            print(contactsCollectionView.layout.itemSize)
             break
         default:
             break
@@ -103,10 +95,8 @@ extension ViewController{
     @objc func presentUserVC(_ notification: Notification){
         let userVC = UserViewController()
         userVC.modalPresentationStyle = .fullScreen
-        //        present(oneCatVC, animated: true, completion: nil)
         present(userVC, animated: true) {
             userVC.user = (notification.userInfo?["userInfo"] as! UserModel)
-            print("HEEEEY\(userVC.user)")
         }
     }
 }

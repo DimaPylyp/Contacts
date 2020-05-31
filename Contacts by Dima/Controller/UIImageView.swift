@@ -34,11 +34,8 @@ class CustomImageView: UIImageView {
             }
             
             DispatchQueue.global(qos: .background).async {
-                
-                // Background Thread
-                
+                                
                 DispatchQueue.main.async {
-                    // Run UI Updates
                     
                     let imageToCache = UIImage(data: data!)
                     
@@ -49,7 +46,6 @@ class CustomImageView: UIImageView {
                     imageCache.setObject(imageToCache!, forKey: urlString as NSString)
                     
                     self.image = imageToCache
-                    
                 }
             }
         }).resume()

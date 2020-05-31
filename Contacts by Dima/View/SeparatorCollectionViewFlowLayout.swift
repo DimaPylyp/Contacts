@@ -9,13 +9,10 @@
 import UIKit
 
 
-// More info: https://www.raizlabs.com/dev/2014/02/animating-items-in-a-uicollectionview/
 class SeparatorCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     private var indexPathsToInsert: [IndexPath] = []
     private var indexPathsToDelete: [IndexPath] = []
-    
-    // MARK: - Lifecycle
     
     override init() {
         super.init()
@@ -102,8 +99,6 @@ class SeparatorCollectionViewFlowLayout: UICollectionViewFlowLayout {
         return layoutAttributesForMyDecoratinoView(at: indexPath, for: cellAttributes.frame, state: .final)
     }
     
-    // MARK: - privates
-    
     private enum State {
         case initial
         case normal
@@ -124,7 +119,6 @@ class SeparatorCollectionViewFlowLayout: UICollectionViewFlowLayout {
             return nil
         }
         
-        //Add separator for every row except the first
         guard indexPath.item > 0 else {
             return nil
         }
@@ -135,17 +129,13 @@ class SeparatorCollectionViewFlowLayout: UICollectionViewFlowLayout {
         
         let firstCellInRow = cellFrame.origin.x < cellFrame.width
         if firstCellInRow {
-            // horizontal line
             separatorAttributes.frame = CGRect(x: rect.minX, y: cellFrame.origin.y - minimumLineSpacing, width: rect.width, height: minimumLineSpacing)
             separatorAttributes.zIndex = 1000
-            
         } else {
-            // vertical line
             separatorAttributes.frame = CGRect(x: cellFrame.origin.x - minimumInteritemSpacing, y: cellFrame.origin.y, width: minimumInteritemSpacing, height: cellFrame.height)
             separatorAttributes.zIndex = 1000
         }
         
-        // Sync the decorator animation with the cell animation in order to avoid blinkining
         switch state {
         case .normal:
             separatorAttributes.alpha = 1

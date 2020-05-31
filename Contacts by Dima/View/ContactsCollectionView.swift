@@ -11,35 +11,37 @@ import UIKit
 class ContactsCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
     
     var users = [UserModel]()
-    
+
     var layout: UICollectionViewFlowLayout = SeparatorCollectionViewFlowLayout()
     
     var layoutOption: LayoutOption = .list
     
     func setupLayout(with containerSize: CGSize) {
-            
-            switch self.layoutOption {
-            case .list:
-                guard let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
-                    return
-                }
-                
-                flowLayout.minimumLineSpacing = 1
-                flowLayout.itemSize = CGSize(width: containerSize.width, height: 50)
-                
-            case .grid:
-                guard let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
-                    return
-                }                
-                flowLayout.minimumInteritemSpacing = 0
-                flowLayout.minimumLineSpacing = 0
-                flowLayout.itemSize = CGSize(width: 50, height: 50)
-                flowLayout.sectionInset = .zero
+        
+        
+        
+        switch self.layoutOption {
+        case .list:
+            guard let flowLayout = self.collectionViewLayout as? SeparatorCollectionViewFlowLayout else {
+                return
             }
+            flowLayout.minimumLineSpacing = 1
+            flowLayout.itemSize = CGSize(width: containerSize.width, height: 50)
             
-            self.reloadData()
+        case .grid:
+            guard let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
+                return
+            }
+            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.minimumLineSpacing = 0
+            flowLayout.itemSize = CGSize(width: 50, height: 50)
+            flowLayout.sectionInset = .zero
+
         }
         
+        self.reloadData()
+    }
+    
     func appendUsers(with user: UserModel){
         users.append(user)
         reloadData()
@@ -106,7 +108,6 @@ class ContactsCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Tap")
         let loginResponse = ["userInfo": users[indexPath.row]]
         NotificationCenter.default.post(name:NSNotification.Name("user selected"), object: nil, userInfo: loginResponse as [AnyHashable : Any])
     }
