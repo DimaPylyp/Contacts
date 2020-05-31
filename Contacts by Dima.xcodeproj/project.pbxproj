@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3219AEA3248276C800A7CAA4 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3219AEA2248276C800A7CAA4 /* UIImageView.swift */; };
+		3219AEA5248282AB00A7CAA4 /* HashConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3219AEA4248282AB00A7CAA4 /* HashConverter.swift */; };
+		3219AEA72482858500A7CAA4 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3219AEA62482858500A7CAA4 /* UserData.swift */; };
+		3219AEA9248285FC00A7CAA4 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3219AEA8248285FC00A7CAA4 /* UserManager.swift */; };
+		3291FCC22483DBCB005AE4DC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3291FCC12483DBCB005AE4DC /* UserViewController.swift */; };
 		3297076E2480474400D33383 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3297076D2480474400D33383 /* AppDelegate.swift */; };
 		329707702480474400D33383 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3297076F2480474400D33383 /* SceneDelegate.swift */; };
 		329707722480474400D33383 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329707712480474400D33383 /* ViewController.swift */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3219AEA2248276C800A7CAA4 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		3219AEA4248282AB00A7CAA4 /* HashConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashConverter.swift; sourceTree = "<group>"; };
+		3219AEA62482858500A7CAA4 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		3219AEA8248285FC00A7CAA4 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3291FCC12483DBCB005AE4DC /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		3297076A2480474400D33383 /* Contacts by Dima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Contacts by Dima.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3297076D2480474400D33383 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3297076F2480474400D33383 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				329707712480474400D33383 /* ViewController.swift */,
+				3219AEA2248276C800A7CAA4 /* UIImageView.swift */,
+				3291FCC12483DBCB005AE4DC /* UserViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -108,6 +120,9 @@
 			children = (
 				329707872480491100D33383 /* UserModel.swift */,
 				3297078A2480493E00D33383 /* LayoutOption.swift */,
+				3219AEA4248282AB00A7CAA4 /* HashConverter.swift */,
+				3219AEA62482858500A7CAA4 /* UserData.swift */,
+				3219AEA8248285FC00A7CAA4 /* UserManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -184,14 +199,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				32970791248121F200D33383 /* CollectionSeparatorView.swift in Sources */,
+				3291FCC22483DBCB005AE4DC /* UserViewController.swift in Sources */,
 				3297078B2480493E00D33383 /* LayoutOption.swift in Sources */,
 				32970786248048EB00D33383 /* ContactsLayoutListCollectionViewCell.swift in Sources */,
+				3219AEA9248285FC00A7CAA4 /* UserManager.swift in Sources */,
 				329707952481579E00D33383 /* ContactsLayoutGridCollectionViewCell.swift in Sources */,
+				3219AEA3248276C800A7CAA4 /* UIImageView.swift in Sources */,
 				329707722480474400D33383 /* ViewController.swift in Sources */,
 				329707932481220500D33383 /* SeparatorCollectionViewFlowLayout.swift in Sources */,
 				329707842480484000D33383 /* ContactsCollectionView.swift in Sources */,
 				3297076E2480474400D33383 /* AppDelegate.swift in Sources */,
+				3219AEA5248282AB00A7CAA4 /* HashConverter.swift in Sources */,
 				329707882480491100D33383 /* UserModel.swift in Sources */,
+				3219AEA72482858500A7CAA4 /* UserData.swift in Sources */,
 				329707702480474400D33383 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

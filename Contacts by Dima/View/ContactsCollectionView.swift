@@ -9,31 +9,64 @@
 import UIKit
 
 class ContactsCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
-
+    
+    var users = [UserModel]()
+    
     var layout: UICollectionViewFlowLayout = SeparatorCollectionViewFlowLayout()
     
-//    private var layoutOption: LayoutOption = .list
+    var layoutOption: LayoutOption = .list
     
-//    private func setupLayout(with containerSize: CGSize) {
-//        guard let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
-//            return
-//        }
-//        
-//        switch layoutOption {
-//        case .list:
-//            break
-//            
-//        case .grid:
-//            break
-//        }
-//        
-//        super.reloadData()
-//    }
+    func setupLayout(with containerSize: CGSize) {
+            
+            switch self.layoutOption {
+            case .list:
+                guard let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
+                    return
+                }
+                
+                flowLayout.minimumLineSpacing = 1
+                flowLayout.itemSize = CGSize(width: containerSize.width, height: 50)
+                
+            case .grid:
+                guard let flowLayout = self.collectionViewLayout as? UICollectionViewFlowLayout else {
+                    return
+                }                
+                flowLayout.minimumInteritemSpacing = 0
+                flowLayout.minimumLineSpacing = 0
+                flowLayout.itemSize = CGSize(width: 50, height: 50)
+                flowLayout.sectionInset = .zero
+            }
+            
+            self.reloadData()
+        }
+        
+    func appendUsers(with user: UserModel){
+        users.append(user)
+        reloadData()
+    }
     
-    private let users = User.defaultUsers
+    func changeModel(){
+        for user in users{
+            let userWillBeRemoved = Bool.random()
+            if userWillBeRemoved{
+                guard let index = users.firstIndex(of: user) else { return }
+                users.remove(at: index)
+            }
+        }
+        for index in users.indices{
+            users[index].status = Status.allCases.randomElement()!
+        }
+        reloadData()
+    }
     
     func configureCollectionViewLayoutItemSize() {
-        layout.itemSize = CGSize(width: collectionViewLayout.collectionView!.frame.size.width, height: 50)
+        switch layoutOption {
+        case .list:
+            layout.itemSize = CGSize(width: collectionViewLayout.collectionView!.frame.size.width, height: 50)
+            
+        case .grid:
+            layout.itemSize = CGSize(width: 50, height: 50)
+        }
     }
     
     init() {
@@ -45,6 +78,7 @@ class ContactsCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
         delegate = self
         dataSource = self
         register(ContactsLayoutListCollectionViewCell.self, forCellWithReuseIdentifier: ContactsLayoutListCollectionViewCell.reuseId)
+        register(ContactsLayoutGridCollectionViewCell.self, forCellWithReuseIdentifier: ContactsLayoutGridCollectionViewCell.reuseId)
         
         translatesAutoresizingMaskIntoConstraints = false
         layout.minimumLineSpacing = 1
@@ -58,9 +92,23 @@ class ContactsCollectionView: UICollectionView, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: ContactsLayoutListCollectionViewCell.reuseId, for: indexPath) as! ContactsLayoutListCollectionViewCell
-        cell.setup(with: users[indexPath.row])
-        return cell
+        
+        switch layoutOption {
+        case .list:
+            let cell = dequeueReusableCell(withReuseIdentifier: ContactsLayoutListCollectionViewCell.reuseId, for: indexPath) as! ContactsLayoutListCollectionViewCell
+            cell.user = users[indexPath.row]
+            return cell
+        case .grid:
+            let cell = dequeueReusableCell(withReuseIdentifier: ContactsLayoutGridCollectionViewCell.reuseId, for: indexPath) as! ContactsLayoutGridCollectionViewCell
+            cell.setup(with: users[indexPath.row])
+            return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Tap")
+        let loginResponse = ["userInfo": users[indexPath.row]]
+        NotificationCenter.default.post(name:NSNotification.Name("user selected"), object: nil, userInfo: loginResponse as [AnyHashable : Any])
     }
     
     required init?(coder: NSCoder) {

@@ -7,36 +7,36 @@
 //
 
 import UIKit
+//import var CommonCrypto.CC_MD5_DIGEST_LENGTH
+//import func CommonCrypto.CC_MD5
+//import typealias CommonCrypto.CC_LONG
+//
+//func MD5(string: String) -> Data {
+//    let length = Int(CC_MD5_DIGEST_LENGTH)
+//    let messageData = string.data(using:.utf8)!
+//    var digestData = Data(count: length)
+//
+//    _ = digestData.withUnsafeMutableBytes { digestBytes -> UInt8 in
+//        messageData.withUnsafeBytes { messageBytes -> UInt8 in
+//            if let messageBytesBaseAddress = messageBytes.baseAddress, let digestBytesBlindMemory = digestBytes.bindMemory(to: UInt8.self).baseAddress {
+//                let messageLength = CC_LONG(messageData.count)
+//                CC_MD5(messageBytesBaseAddress, messageLength, digestBytesBlindMemory)
+//            }
+//            return 0
+//        }
+//    }
+//    return digestData
+//}
 
-struct User {
+struct UserModel: Equatable {
     let name: String
-    let status: Status
+    var status: Status
     let email: String
-    let avatar: UIImage?
+    let avatarUrl: String
+    let bigAvatarUrl: String
 }
 
-enum Status {
+enum Status: CaseIterable {
     case online
     case offline
-}
-
-extension User {
-    static let defaultUsers: [User] = [
-        User(name: "Andry Kuzmenko", status: .offline, email: "skriabin@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Sviatoslav Vakarchuk", status: .online, email: "okeanelzy@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Oleksandr Sydorenko", status: .online, email: "fozzy@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Oleg Myhailiuta", status: .online, email: "fagot@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Oleksandr Polozhynski", status: .online, email: "tnmk@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Andry Kuzmenko", status: .offline, email: "skriabin@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Sviatoslav Vakarchuk", status: .online, email: "okeanelzy@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Oleksandr Sydorenko", status: .online, email: "fozzy@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Oleg Myhailiuta", status: .online, email: "fagot@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Oleksandr Polozhynski", status: .online, email: "tnmk@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Andry Kuzmenko", status: .offline, email: "skriabin@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Sviatoslav Vakarchuk", status: .online, email: "okeanelzy@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Oleg Myhailiuta", status: .online, email: "fagot@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Oleksandr Polozhynski", status: .online, email: "tnmk@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Andry Kuzmenko", status: .offline, email: "skriabin@gmail.com", avatar: UIImage(named: "icons8-name-96")),
-        User(name: "Sviatoslav Vakarchuk", status: .online, email: "okeanelzy@gmail.com", avatar: UIImage(named: "icons8-name-96"))
-    ]
 }

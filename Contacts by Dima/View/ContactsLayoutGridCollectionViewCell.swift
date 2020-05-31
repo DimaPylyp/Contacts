@@ -12,8 +12,8 @@ class ContactsLayoutGridCollectionViewCell: UICollectionViewCell {
     
     static let reuseId = "ContactsLayoutGridCollectionViewCell"
     
-    let avatarImageView: UIImageView = {
-        let imageView = UIImageView()
+    let avatarImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleToFill
         imageView.layer.masksToBounds = true
@@ -22,18 +22,36 @@ class ContactsLayoutGridCollectionViewCell: UICollectionViewCell {
     }()
     
     let statusIndicator: UIView = {
+        let backgroundView = UIView()
+        backgroundView.frame.size = CGSize(width: 15, height: 15)
+        backgroundView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundView.layer.cornerRadius = 7.5
+        backgroundView.clipsToBounds = true
+        backgroundView.layer.borderColor = UIColor.white.cgColor
+        backgroundView.layer.borderWidth = 1
         let view = UIView()
+        view.frame.size = CGSize(width: 15, height: 15)
         view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+        view.layer.cornerRadius = 2.5
+        view.clipsToBounds = true
+        view.layer.borderColor = UIColor(red: 0.20392156862745098, green: 0.7803921568627451, blue: 0.34901960784313724, alpha: 1.0).cgColor
+        view.layer.borderWidth = 7.5
+        backgroundView.addSubview(view)
+        return backgroundView
     }()
     
-    func setup(with user: User){
-        avatarImageView.image = user.avatar
+    func setup(with user: UserModel){
+        avatarImageView.loadImagesUsingUrlString(urlString: user.avatarUrl)
         switch user.status {
         case .online:
-            print("\(user.name) is online")
+            avatarImageView.addSubview(statusIndicator)
+            
+            statusIndicator.heightAnchor.constraint(equalToConstant: 15).isActive = true
+            statusIndicator.widthAnchor.constraint(equalToConstant: 15).isActive = true
+            statusIndicator.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor).isActive = true
+            statusIndicator.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor).isActive = true
         case .offline:
-            print("\(user.name) is offline")
+            break
         }
     }
     
@@ -41,14 +59,14 @@ class ContactsLayoutGridCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(avatarImageView)
-        avatarImageView.addSubview(statusIndicator)
+//        avatarImageView.addSubview(statusIndicator)
         avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         avatarImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         avatarImageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
-        statusIndicator.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor).isActive = true
-        statusIndicator.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor).isActive = true
+//        statusIndicator.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor).isActive = true
+//        statusIndicator.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor).isActive = true
     }
     
     required init?(coder: NSCoder) {
