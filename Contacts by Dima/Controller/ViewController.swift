@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .white
+        
         userManager.delegate = self
         
         notificationCenter.addObserver(self, selector: #selector(presentUserVC(_:)), name: NSNotification.Name ("user selected"), object: nil)
